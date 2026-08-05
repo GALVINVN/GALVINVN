@@ -64,6 +64,17 @@ foreach ($t in $tasks) {
     Write-Host "Task $($t) -> Disabled"
   } catch { Write-Host "Task $($t): $($_.Exception.Message)" -ForegroundColor DarkYellow }
 }
+$ts = 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services'
+New-Item $ts -Force | Out-Null
+Set-ItemProperty $ts MaxIdleTime 0 -Type DWord
+Set-ItemProperty $ts MaxDisconnectionTime 0 -Type DWord
+Set-ItemProperty $ts MaxConnectionTime 0 -Type DWord
+Set-ItemProperty $ts fResetBroken 0 -Type DWord
+$sys = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+Set-ItemProperty $sys InactivityTimeoutSecs 0 -Type DWord
+powercfg /change standby-timeout-ac 0
+powercfg /change monitor-timeout-ac 0
+gpupdate /force
 powercfg /setactive SCHEME_MIN
 powercfg /change monitor-timeout-ac 0
 powercfg /change standby-timeout-ac 0
