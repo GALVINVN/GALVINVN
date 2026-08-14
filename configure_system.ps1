@@ -74,7 +74,6 @@ $sys = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
 Set-ItemProperty $sys InactivityTimeoutSecs 0 -Type DWord
 powercfg /change standby-timeout-ac 0
 powercfg /change monitor-timeout-ac 0
-gpupdate /force
 powercfg /setactive SCHEME_MIN
 powercfg /change monitor-timeout-ac 0
 powercfg /change standby-timeout-ac 0
@@ -296,4 +295,5 @@ Clear-RecycleBin -Force
 Stop-Service -Name "WSearch" -Force
 Remove-Item -Path "C:\ProgramData\Microsoft\Search\Data\*" -Recurse -Force
 Set-Service -Name "WSearch" -StartupType Disabled
+gpupdate /force
 exit
