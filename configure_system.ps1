@@ -295,5 +295,4 @@ Clear-RecycleBin -Force
 Stop-Service -Name "WSearch" -Force
 Remove-Item -Path "C:\ProgramData\Microsoft\Search\Data\*" -Recurse -Force
 Set-Service -Name "WSearch" -StartupType Disabled
-gpupdate /force
 exit
