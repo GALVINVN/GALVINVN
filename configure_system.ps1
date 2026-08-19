@@ -295,4 +295,6 @@ Clear-RecycleBin -Force
 Stop-Service -Name "WSearch" -Force
 Remove-Item -Path "C:\ProgramData\Microsoft\Search\Data\*" -Recurse -Force
 Set-Service -Name "WSearch" -StartupType Disabled
+New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Force | Out-Null
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" -Name "fDisableClip" -Type DWord -Value 0
 exit
